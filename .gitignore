@@ -1,0 +1,14 @@
+# Virtual environment (recreate it with: pip install -r requirements.txt)
+.venv/
+
+# Python cache files
+__pycache__/
+
+# Jupyter autosave files
+.ipynb_checkpoints/
+
+# Raw data in every project: too big for git, and anyone can re-download it
+**/data/raw/
+
+# CSV files inside any raw data folder (backup rule in case the one above is changed)
+**/data/raw/**/*.csv
