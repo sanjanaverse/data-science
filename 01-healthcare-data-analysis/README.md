@@ -138,8 +138,8 @@ You need Python 3.12 or newer (tested on 3.15) and Git. Commands are for Windows
 
 ```bash
 # 1. Get the code
-git clone <this-repo-url>
-cd <repo-folder>
+git clone https://github.com/sanjanaverse/data-science.git
+cd data-science
 
 # 2. Create a virtual environment and install packages
 python -m venv .venv
