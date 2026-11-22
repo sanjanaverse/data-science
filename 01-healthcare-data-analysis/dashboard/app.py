@@ -30,6 +30,12 @@ MUTED = "#898781"
 # ---------------------------------------------------------------- page setup
 st.set_page_config(page_title="Diabetes Readmissions Dashboard", page_icon="🏥", layout="wide")
 
+# Streamlit colours selected filter options red by default, which looks like an error.
+# This small CSS rule makes them blue to match the charts.
+st.markdown(f"""<style>
+    .stMultiSelect span[data-tag] {{ background-color: {BLUE} !important; }}
+</style>""", unsafe_allow_html=True)
+
 
 
 # ---------------------------------------------------------------- load data
@@ -140,6 +146,9 @@ def rate_chart(group_col, order, x_title):
     )
     fig.update_traces(hovertemplate="%{x}<br>Readmission rate: %{y:.1%}"
                                     "<br>Patients: %{customdata[0]:,}<extra></extra>")
+    # Treat x values as labels, not numbers. Without this, Plotly reads "0", "1", "2" as
+    # numbers, makes a numeric axis, and silently drops the "5+" bar.
+    fig.update_xaxes(type="category")
     fig.add_hline(y=selection_rate, line_color=MUTED, line_width=1.5,
                   annotation_text=f"average {selection_rate:.1%}",
                   annotation_position="top left", annotation_font_color=MUTED)
