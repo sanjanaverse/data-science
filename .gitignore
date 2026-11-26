@@ -15,3 +15,6 @@ __pycache__/
 
 # Trained model files: they can be large and are recreated by running the notebooks
 **/models/*.joblib
+
+# Project 2 train/test CSVs: recreated by running notebooks/02_preprocessing.ipynb
+02-diabetes-risk-prediction/data/processed/*.csv
