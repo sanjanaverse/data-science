@@ -12,3 +12,6 @@ __pycache__/
 
 # CSV files inside any raw data folder (backup rule in case the one above is changed)
 **/data/raw/**/*.csv
+
+# Trained model files: they can be large and are recreated by running the notebooks
+**/models/*.joblib
